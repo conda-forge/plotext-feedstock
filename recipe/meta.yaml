@@ -1,5 +1,5 @@
 {% set name = "plotext" %}
-{% set version = "3.1.3" %}
+{% set version = "4.0.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/plotext-{{ version }}.tar.gz
-  sha256: 9f96cdf210606260d8e243ece0a2c60dd2efb1065b6f5d52755627968de58d1f
+  sha256: eda34b1f3b1cb5aed3d646e5e993cda03b465e7519325f69b95aa6cd26007b0e
 
 build:
   number: 0
@@ -20,6 +20,8 @@ requirements:
     - pip
     - python >=3.6
   run:
+    - numpy
+    - pillow
     - python >=3.6
 
 test:
@@ -29,7 +31,6 @@ test:
     - pip
   commands:
     - pip check
-    - python -c "import plotext as plt; plt.docstrings()"
 
 about:
   home: https://github.com/piccolomo/plotext
