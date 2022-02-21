@@ -14,23 +14,27 @@ build:
   number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
+  entry_points:
+    - plotext = plotext.plotext_cli:main
 
 requirements:
   host:
     - pip
     - python >=3.6
   run:
-    - numpy
-    - pillow
     - python >=3.6
 
 test:
+  source_files:
+    - tests
   imports:
     - plotext
   requires:
     - pip
   commands:
     - pip check
+    - plotext --help
+    - pytest -vvv --capture=tee-sys tests
 
 about:
   home: https://github.com/piccolomo/plotext
