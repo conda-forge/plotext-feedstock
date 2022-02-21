@@ -1,5 +1,5 @@
 {% set name = "plotext" %}
-{% set version = "4.1.5" %}
+{% set version = "4.2.0" %}
 
 
 package:
@@ -8,20 +8,20 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/plotext-{{ version }}.tar.gz
-  sha256: ba0a2870f55b4bbc75a06228b4779bdfd2608f1f43ceb4f8851d9f9a63923ef8
+  sha256: fccb794238f9001d835b158ae2a1f540757a58d4ebb406d99bd68f75f5f7a81e
 
 build:
   number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
+  entry_points:
+    - plotext = plotext.plotext_cli:main
 
 requirements:
   host:
     - pip
     - python >=3.6
   run:
-    - numpy
-    - pillow
     - python >=3.6
 
 test:
@@ -31,6 +31,7 @@ test:
     - pip
   commands:
     - pip check
+    - plotext --help
 
 about:
   home: https://github.com/piccolomo/plotext
