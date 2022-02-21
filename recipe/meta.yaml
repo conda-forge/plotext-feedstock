@@ -25,17 +25,13 @@ requirements:
     - python >=3.6
 
 test:
-  source_files:
-    - tests
   imports:
     - plotext
   requires:
     - pip
-    - pytest
   commands:
     - pip check
     - plotext --help
-    - pytest -vvv --capture=tee-sys --tb=short -rxs tests
 
 about:
   home: https://github.com/piccolomo/plotext
