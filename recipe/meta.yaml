@@ -35,7 +35,7 @@ test:
   commands:
     - pip check
     - plotext --help
-    - pytest -vvv --capture=tee-sys tests
+    - pytest -vvv --capture=tee-sys --tb=short -rxs tests
 
 about:
   home: https://github.com/piccolomo/plotext
