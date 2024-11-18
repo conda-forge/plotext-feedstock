@@ -1,5 +1,5 @@
 {% set name = "plotext" %}
-{% set version = "5.3.1" %}
+{% set version = "5.3.2" %}
 
 
 package:
@@ -7,8 +7,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/plotext-{{ version }}.tar.gz
-  sha256: 8e81473f57aefdb1234ac897837fd4a4ab9c340acb9c326d63ae7a34d12d45b8
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/plotext-{{ version }}.tar.gz
+  sha256: 52d1e932e67c177bf357a3f0fe6ce14d1a96f7f7d5679d7b455b929df517068e
 
 build:
   number: 0
@@ -20,16 +20,17 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
     - setuptools
   run:
-    - python >=3.6
+    - python >={{ python_min }}
 
 test:
   imports:
     - plotext
   requires:
     - pip
+    - python {{ python_min }}
   commands:
     - pip check
     - plotext --help
